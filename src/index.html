@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Missing Diaries</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Missing Diaries</h1>
+    <hr/>
+
+    <div id="accountAddress" class="text-center"></div>
+
+    
+    <div id="content" style="display: none;">
+        
+        <form id="formAddPerson" onsubmit="App.handleAddPerson(event);">
+            <h2>Add Missing Person</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height (in cm):</label>
+                <input type="number" class="form-control" id="height" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="division">Division:</label>
+                <select class="form-control" id="division" required>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Barishal">Barishal</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Mymensing">Mymensing</option>
+                    <option value="Sylhet">Sylhet</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Relative's Contact Number:</label>
+                <input type="text" class="form-control" id="contactNumber" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <hr/>
+
+        
+        <h2>Missing Persons List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Height</th>
+                    <th>Description</th>
+                    <th>Division</th>
+                    <th>Contact</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody id="missingPersonsList">
+                
+            </tbody>
+        </table>
+        <div>
+            <h2>Search Missing Person by Name</h2>
+            <input type="text" id="searchName" placeholder="Enter name">
+            <button onclick="App.searchByName()">Search</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    App.init();
+});
+</script>
+
+
+<div id="searchResults" style="margin-top: 20px;">
+    <h2>Search Results:</h2>
+    
+</div>
+
+</body>
+</html>
